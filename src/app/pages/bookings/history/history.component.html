@@ -1,0 +1,32 @@
+<div class="history-container">
+  <h2>Your Booking History</h2>
+
+  <p-table
+    [value]="bookings"
+    *ngIf="bookings.length > 0"
+    class="p-datatable-striped"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Booking ID</th>
+        <th>Train</th>
+        <th>Route</th>
+        <th>Seat</th>
+        <th>Date</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-booking>
+      <tr>
+        <td>{{ booking.bookingId }}</td>
+        <td>{{ booking.trainName }}</td>
+        <td>{{ booking.source }} → {{ booking.destination }}</td>
+        <td>Seat {{ booking.seatNumber }}</td>
+        <td>{{ booking.bookingDate | date : "medium" }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div *ngIf="bookings.length === 0">
+    <p>You have no bookings yet.</p>
+  </div>
+</div>

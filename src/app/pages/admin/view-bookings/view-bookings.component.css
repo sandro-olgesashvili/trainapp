@@ -1,0 +1,90 @@
+.history-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.8rem;
+}
+
+::ng-deep .p-datatable {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+::ng-deep .p-datatable thead th {
+  background: #1976d2 !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 0.75rem !important;
+}
+
+::ng-deep .p-datatable tbody td {
+  padding: 0.75rem !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+::ng-deep .p-datatable tbody tr:hover {
+  background: #f1f5fb !important;
+  cursor: pointer !important;
+}
+
+::ng-deep .p-datatable tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+p {
+  text-align: center !important;
+  color: #555 !important;
+  font-size: 1.1rem !important;
+}
+
+@media (max-width: 768px) {
+  .history-container {
+    padding: 1rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  ::ng-deep .p-datatable thead {
+    display: none !important;
+  }
+
+  ::ng-deep .p-datatable tbody,
+  ::ng-deep .p-datatable tbody tr,
+  ::ng-deep .p-datatable tbody td {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-datatable tbody tr {
+    margin-bottom: 1rem !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+  }
+
+  ::ng-deep .p-datatable tbody td {
+    padding: 0.75rem !important;
+    border: none !important;
+    position: relative !important;
+  }
+
+  ::ng-deep .p-datatable tbody td::before {
+    content: attr(data-label) !important;
+    font-weight: 600 !important;
+    display: block !important;
+    margin-bottom: 0.3rem !important;
+    color: #333 !important;
+  }
+}

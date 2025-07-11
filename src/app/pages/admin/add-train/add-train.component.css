@@ -1,0 +1,62 @@
+.add-train-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1976d2;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.field small {
+  color: #e53935;
+  font-size: 0.8rem;
+}
+
+::ng-deep input.p-inputtext,
+::ng-deep .p-inputnumber input {
+  padding: 0.55rem 0.75rem !important;
+  border-radius: 4px !important;
+  border: 1px solid #ccc !important;
+  font-size: 1rem !important;
+}
+
+::ng-deep input:focus,
+::ng-deep .p-inputnumber input:focus {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px #1976d230 !important;
+}
+
+::ng-deep .p-button {
+  background: #1976d2 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 0.65rem 1.2rem !important;
+  font-size: 1rem !important;
+  color: white !important;
+}
+
+::ng-deep .p-button:hover {
+  background: #135ba1 !important;
+}

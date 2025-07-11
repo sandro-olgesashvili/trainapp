@@ -1,0 +1,56 @@
+<div class="add-train-container">
+  <h2>Add New Train</h2>
+
+  <form [formGroup]="trainForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label>Name</label>
+      <input pInputText formControlName="name" />
+      <small
+        *ngIf="trainForm.get('name')?.invalid && trainForm.get('name')?.touched"
+        >Name is required</small
+      >
+    </div>
+
+    <div class="field">
+      <label>Source</label>
+      <input pInputText formControlName="source" />
+      <small
+        *ngIf="
+          trainForm.get('source')?.invalid && trainForm.get('source')?.touched
+        "
+        >Source is required</small
+      >
+    </div>
+
+    <div class="field">
+      <label>Destination</label>
+      <input pInputText formControlName="destination" />
+      <small
+        *ngIf="
+          trainForm.get('destination')?.invalid &&
+          trainForm.get('destination')?.touched
+        "
+        >Destination is required</small
+      >
+    </div>
+
+    <div class="field">
+      <label>Total Seats</label>
+      <p-inputNumber formControlName="totalSeats" [min]="1"></p-inputNumber>
+      <small
+        *ngIf="
+          trainForm.get('totalSeats')?.invalid &&
+          trainForm.get('totalSeats')?.touched
+        "
+        >Must be at least 1</small
+      >
+    </div>
+
+    <button
+      pButton
+      type="submit"
+      label="Add Train"
+      [disabled]="trainForm.invalid"
+    ></button>
+  </form>
+</div>

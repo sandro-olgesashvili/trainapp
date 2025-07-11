@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">TrainApp</a>
+
+  <div class="nav-links">
+    <a routerLink="/trains" *ngIf="isLoggedIn$ | async">Trains</a>
+    <a routerLink="/bookings" *ngIf="isLoggedIn$ | async">Booking History</a>
+    <a *ngIf="authService.isAdmin" routerLink="/admin/add-train">Add Train</a>
+    <a *ngIf="authService.isAdmin" routerLink="/admin">All Bookings</a>
+  </div>
+
+  <div class="auth-links">
+    <ng-container *ngIf="isLoggedIn$ | async; else loggedOut">
+      <button (click)="logout()">Logout</button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </ng-template>
+  </div>
+</nav>

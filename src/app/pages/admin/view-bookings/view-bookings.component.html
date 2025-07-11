@@ -1,0 +1,25 @@
+<div class="history-container">
+  <h2>All Users Bookings</h2>
+  @if (bookings | async; as bookings) {
+  <p-table [value]="bookings">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Train</th>
+        <th>Route</th>
+        <th>Seat</th>
+        <th>Date</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-b>
+      <tr>
+        <td>{{ b.bookingId }}</td>
+        <td>{{ b.trainName }}</td>
+        <td>{{ b.source }} → {{ b.destination }}</td>
+        <td>{{ b.seatNumber }}</td>
+        <td>{{ b.bookingDate | date : "medium" }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  }
+</div>

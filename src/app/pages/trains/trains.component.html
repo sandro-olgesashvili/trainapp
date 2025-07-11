@@ -1,0 +1,95 @@
+<div class="trains-container">
+  <h2>Search Trains</h2>
+
+  <form class="search-form" (ngSubmit)="searchTrains()">
+    <div class="field">
+      <label>Source</label>
+      <input type="text" pInputText [(ngModel)]="source" name="source" />
+    </div>
+
+    <div class="field">
+      <label>Destination</label>
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="destination"
+        name="destination"
+      />
+    </div>
+
+    <button pButton type="submit" label="Search"></button>
+  </form>
+
+  <p-table
+    [value]="trains"
+    *ngIf="trains.length > 0"
+    class="p-datatable-striped"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Total Seats</th>
+        <th>Available Seats</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-train>
+      <tr (click)="openBookingDialog(train)">
+        <td>{{ train.name }}</td>
+        <td>{{ train.source }}</td>
+        <td>{{ train.destination }}</td>
+        <td>{{ train.totalSeats }}</td>
+        <td>{{ train.availableSeats }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- BOOKING DIALOG -->
+  <p-dialog
+    header="Book a Seat"
+    [(visible)]="displayDialog"
+    [modal]="true"
+    [style]="{ width: '500px', gap: '30px' }"
+  >
+    <div *ngIf="selectedTrain" class="dialog-content">
+      <p><strong>Train:</strong> {{ selectedTrain.name }}</p>
+      <p>
+        <strong>Route:</strong> {{ selectedTrain.source }} →
+        {{ selectedTrain.destination }}
+      </p>
+      <p><strong>Total Seats:</strong> {{ selectedTrain.totalSeats }}</p>
+      <p>
+        <strong>Booked Seats:</strong>
+        <span *ngIf="selectedTrain.bookedSeats.length === 0"> None</span>
+        <span *ngIf="selectedTrain.bookedSeats.length > 0">
+          {{ selectedTrain.bookedSeats.join(", ") }}
+        </span>
+      </p>
+
+      <div class="field">
+        <p-dropdown
+          [options]="availableSeats"
+          [(ngModel)]="selectedSeat"
+          optionLabel="label"
+          placeholder="Select seat"
+        ></p-dropdown>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <button
+        pButton
+        label="Book Seat"
+        (click)="bookSeat()"
+        [disabled]="!selectedSeat"
+      ></button>
+      <button
+        pButton
+        label="Cancel"
+        class="p-button-text"
+        (click)="displayDialog = false"
+      ></button>
+    </ng-template>
+  </p-dialog>
+</div>

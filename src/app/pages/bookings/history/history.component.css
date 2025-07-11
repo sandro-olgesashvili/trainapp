@@ -1,0 +1,23 @@
+.history-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1976d2;
+}
+
+::ng-deep .p-datatable thead th {
+  background: #1976d2 !important;
+  color: white !important;
+}
+
+::ng-deep .p-datatable tbody tr:hover {
+  background: #f1f5fb;
+}
